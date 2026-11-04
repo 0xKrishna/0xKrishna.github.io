@@ -5,85 +5,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Krishna Upadhyaya, Protocol &amp; Solutions Engineer</title>
 <meta name="description" content="Blockchain engineer with 9+ years of experience, from Polygon's core protocol to founding engineer. I build infrastructure and work directly with the people who use it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #faf8f3; --ink: #23211c; --soft: #5d584c; --line: #d9d3c5; --link: #7a3b12; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #1b1a17; --ink: #ece7dc; --soft: #a9a294; --line: #3a372f; --link: #e0a878; } }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
-  main { max-width: 680px; margin: 0 auto; padding: 72px 24px; }
-  h1 { margin: 0 0 12px; font-size: 44px; line-height: 1.1; font-weight: 400; }
-  .lede { margin: 0 0 16px; font-size: 23px; line-height: 1.4; color: var(--soft); }
-  .links { margin: 0; font-size: 16px; color: var(--soft); }
-  a { color: var(--link); text-underline-offset: 3px; }
-  h2 { margin: 56px 0 8px; font: 600 13px/1.4 -apple-system, Helvetica, Arial, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: var(--soft); }
-  article { padding: 20px 0; border-top: 1px solid var(--line); }
-  h3 { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 700; }
-  .where { margin: 2px 0 8px; font-size: 15px; color: var(--soft); }
-  article p { margin: 0 0 8px; }
-  .refs { font-size: 15px; color: var(--soft); }
-  .row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 16px; }
-  .row span:last-child { white-space: nowrap; color: var(--soft); }
-  .plain { padding-top: 10px; border-top: 1px solid var(--line); font-size: 16px; margin: 0; }
-  @media (max-width: 520px) { main { padding: 44px 20px; } h1 { font-size: 36px; } .lede { font-size: 20px; } .row { flex-direction: column; gap: 0; } }
+:root{--bg:#f3f4f6;--grid:#e6e8ec;--ink:#15171b;--body:#363a42;--soft:#596070;--line:#d6d9df;--accent:oklch(0.5 0.14 255);--ok:oklch(0.62 0.15 145)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px;color:var(--ink);-webkit-font-smoothing:antialiased;font:17px/1.6 'IBM Plex Sans',Helvetica,sans-serif}
+a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+.mono{font-family:'IBM Plex Mono',monospace}
+main{max-width:1040px;margin:0 auto;padding:72px 28px 96px;display:flex;flex-direction:column;gap:96px}
+header{display:flex;flex-direction:column;gap:28px}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--soft)}
+.status{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+h1{margin:0;font-weight:500;font-size:clamp(44px,7vw,84px);line-height:1.02;letter-spacing:-0.03em}
+.lede{margin:0;font-size:clamp(20px,2.4vw,26px);line-height:1.4;max-width:720px;color:var(--body);text-wrap:pretty}
+nav{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px}
+nav .cta{color:var(--accent)}
+.label{font-size:13px;color:var(--soft)}
+.section-head{padding-bottom:16px;border-bottom:1px solid var(--ink)}
+article,.row2{display:flex;flex-wrap:wrap;gap:12px 48px}
+article{padding:36px 0;border-bottom:1px solid var(--line)}
+.side{flex:0 0 200px;font-size:13px;color:var(--soft);display:flex;flex-direction:column;gap:4px}
+.side .n{color:var(--accent)}
+.main{flex:1 1 480px;display:flex;flex-direction:column;gap:14px;min-width:0}
+h2{margin:0;font-size:26px;font-weight:500;letter-spacing:-0.01em;line-height:1.25}
+p{margin:0;color:var(--body);text-wrap:pretty}
+.refs{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px}
+.refs span,.note{color:var(--soft);font-size:13px}
+.job{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.job:first-child{padding-top:0}
+.job b{font-weight:500}
+.job .org{color:var(--soft)}
+.job .d{font-size:13px;color:var(--soft);padding-top:3px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px 32px}
+.skills div{display:flex;flex-direction:column;gap:6px}
+.skills .k{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em}
+.skills .v{font-size:15px;color:var(--body);line-height:1.55}
+footer{display:flex;flex-direction:column;gap:20px;padding-top:48px;border-top:1px solid var(--ink)}
+footer p{font-size:clamp(24px,3.4vw,36px);font-weight:500;letter-spacing:-0.02em;line-height:1.2;max-width:720px;color:var(--ink)}
+@media (max-width:520px){main{padding:44px 20px 72px;gap:72px}}
 </style>
 </head>
 <body>
 <main>
+
+<header>
+  <div class="top mono">
+    <span>0xkrishna</span>
+    <span class="status"><span class="dot"></span>Open to work · Indore, India (remote)</span>
+  </div>
   <h1>Krishna Upadhyaya</h1>
   <p class="lede">I build blockchain infrastructure, and I work directly with the people who use it.</p>
-  <p class="links">Open to work &middot; Indore, India (remote)<br>
-    <a href="mailto:krishnau1604@gmail.com">Email</a> &middot;
-    <a href="https://github.com/0xKrishna">GitHub</a> &middot;
-    <a href="https://www.linkedin.com/in/0xkrishnau">LinkedIn</a> &middot;
-    <a href="https://x.com/0xkrishnau">X</a> &middot;
-    <a href="Krishna-Upadhyaya-Resume.pdf">Resume (PDF)</a></p>
+  <nav class="mono">
+    <a href="mailto:krishnau1604@gmail.com">Email</a>
+    <a href="https://github.com/0xKrishna">GitHub</a>
+    <a href="https://www.linkedin.com/in/0xkrishnau">LinkedIn</a>
+    <a href="https://x.com/0xkrishnau">X</a>
+    <a class="cta" href="Krishna-Upadhyaya-Resume.pdf">Resume (PDF) ↗</a>
+  </nav>
+</header>
 
-  <h2>Selected work</h2>
+<section>
+  <div class="label mono section-head">Selected work</div>
 
   <article>
-    <h3>Bringing Erigon to Polygon PoS</h3>
-    <p class="where">Senior Protocol Engineer, Polygon Labs</p>
-    <p>I led development of Turbo-Bor, an Erigon fork that was later merged upstream so that Erigon supports Bor consensus natively. I also built the Bor-Heimdall merged binary to simplify node operations, added self-healing to Heimdall so nodes recover from missed events and validator downtime, and led network hard forks.</p>
-    <p class="refs">Public work:
-      <a href="https://github.com/erigontech/erigon/pull/4369">Bor mainnet snapshots</a> &middot;
-      <a href="https://github.com/0xPolygon/bor/pull/646">Heimdall app in Bor</a> &middot;
-      <a href="https://github.com/0xPolygon/heimdall/pull/1037">Self-healing</a></p>
+    <div class="side mono"><span class="n">01</span><span>Senior Protocol Engineer, Polygon Labs</span></div>
+    <div class="main">
+      <h2>Bringing Erigon to Polygon PoS</h2>
+      <p>I maintained and enhanced core Polygon PoS components, including Heimdall (Cosmos SDK) and Bor (Geth-derived) nodes. I led development of Turbo-Bor, an Erigon fork that was later merged upstream so that Erigon supports Bor consensus natively. I also designed the Bor-Heimdall merged binary to simplify node operations and deployment, built a self-healing mechanism in Heimdall so nodes recover automatically from missed events and validator downtime, and led multiple network hard forks covering security patches and feature rollouts.</p>
+      <div class="refs mono"><span>Public work</span><a href="https://github.com/erigontech/erigon/pull/4369">Bor mainnet snapshots</a><a href="https://github.com/0xPolygon/bor/pull/646">Heimdall app in Bor</a><a href="https://github.com/0xPolygon/heimdall/pull/1037">Self-healing</a></div>
+    </div>
   </article>
 
   <article>
-    <h3>Making a live trading product trustworthy</h3>
-    <p class="where">Founding Protocol Engineer, Pelagos (Nabu)</p>
-    <p>Nabu is an AI trading platform where traders used real money, so a wrong number or a failed order mattered. I connected live exchanges, including Binance and Hyperliquid, reworked profit-and-loss reporting so that account figures come from the exchange itself, and turned what traders told us into fixes and clearer product behavior.</p>
-    <p class="refs">Nabu's code is private, so I'm happy to talk through this work in conversation.</p>
+    <div class="side mono"><span class="n">02</span><span>Founding Protocol Engineer, Pelagos (Nabu)</span></div>
+    <div class="main">
+      <h2>Making a live trading product trustworthy</h2>
+      <p>Nabu is an AI trading platform where traders used real money, so a wrong number or a failed order mattered. I integrated live exchanges, including Binance spot and perps and Hyperliquid markets, with leverage and native take-profit and stop-loss orders. I reworked profit-and-loss and portfolio reporting across the backend, API and UI so that account figures come from the exchange as the single source of truth, and turned what traders told us into fixes and clearer product behavior.</p>
+      <div class="note mono">Nabu's code is private, so I'm happy to talk through this work in conversation.</div>
+    </div>
   </article>
 
   <article>
-    <h3>Giving developers tools to build on</h3>
-    <p class="where">Founding Protocol Engineer, Pelagos</p>
-    <p>I built features in the Pelagos Go SDK, including transaction receipts, JSON-RPC, external transactions, and Solana and EVM support, and helped the teams building with it from their requirements through to debugging. I also built a testnet L1-to-L2 bridge on the SDK in Go and Solidity.</p>
-    <p class="refs">Public work:
-      <a href="https://github.com/0xAtelerix/sdk">SDK</a> &middot;
-      <a href="https://github.com/0xAtelerix/example">Example appchain</a> &middot;
-      <a href="https://github.com/0xKrishna/bridge">Bridge</a></p>
+    <div class="side mono"><span class="n">03</span><span>Founding Protocol Engineer, Pelagos</span></div>
+    <div class="main">
+      <h2>Giving developers tools to build on</h2>
+      <p>I built features in the Pelagos Go SDK, including transaction receipts, JSON-RPC, external transactions, and Solana and EVM support, maintained the public example appchain, and helped the teams building with it from their requirements through to debugging. I also extended the core protocol with Midnight chain integration, exchange market data, and storage reclamation, and built a testnet L1-to-L2 bridge appchain on the SDK in Go and Solidity.</p>
+      <div class="refs mono"><span>Public work</span><a href="https://github.com/0xAtelerix/sdk">SDK</a><a href="https://github.com/0xAtelerix/example">Example appchain</a><a href="https://github.com/0xKrishna/bridge">Bridge</a></div>
+    </div>
   </article>
 
   <article>
-    <h3>Shipping for clients</h3>
-    <p class="where">Solutions Engineer to Associate Team Lead, Deqode</p>
-    <p>I started my career delivering blockchain products directly for clients: a Go and React payments product for Monetha, TypeScript services and Bitcoin and Ethereum wallets for CakeDefi, and a proprietary Go blockchain for 0chain.</p>
+    <div class="side mono"><span class="n">04</span><span>Blockchain Protocol Lead, Independent Consultant</span></div>
+    <div class="main">
+      <h2>One rollup per application</h2>
+      <p>I architected a modular dApp ecosystem on OP Stack, deploying each application as its own customizable rollup, and built a rollup orchestrator that automates deployment, contract initialization and lifecycle management through an API and UI. I connected the rollups to a decentralized sequencer network built with Cosmos SDK for shared block production and wallet balances, implemented cross-chain messaging with Hyperlane, and integrated private on-chain compute using Zama's FHE coprocessor.</p>
+    </div>
   </article>
 
-  <h2>Experience</h2>
-  <div class="row"><span>Founding Protocol Engineer, Pelagos Network</span><span>Sep 2025 &ndash; Nov 2026</span></div>
-  <div class="row"><span>Blockchain Protocol Lead, Independent Consultant</span><span>Feb 2024 &ndash; Aug 2025</span></div>
-  <div class="row"><span>Senior Protocol Engineer, Polygon Labs</span><span>Jan 2021 &ndash; Jan 2024</span></div>
-  <div class="row"><span>Solutions Engineer to Associate Team Lead, Deqode</span><span>Jul 2017 &ndash; Jan 2021</span></div>
+  <article>
+    <div class="side mono"><span class="n">05</span><span>Solutions Engineer to Associate Team Lead, Deqode</span></div>
+    <div class="main">
+      <h2>Shipping for clients</h2>
+      <p>I started my career delivering blockchain products directly for clients: a Go backend and React frontend with Ethereum integration for ERC-20 payments for Monetha, TypeScript microservices and Bitcoin and Ethereum wallet operations for CakeDefi, and a proprietary Go blockchain for 0chain, including REST APIs, CLI tools and node orchestration.</p>
+    </div>
+  </article>
+</section>
 
-  <h2>Skills</h2>
-  <p class="plain"><b>Languages:</b> Go, TypeScript, JavaScript, Solidity, React.<br><b>Protocol:</b> Consensus and node infrastructure, Polygon PoS (Bor, Heimdall), Erigon, Go-Ethereum, Cosmos SDK, OP Stack.<br><b>Cross-chain and integrations:</b> Hyperlane, bridges, Solana, Midnight, JSON-RPC, WebSockets, webhooks, Privy wallets.<br><b>Trading systems:</b> Hyperliquid, Binance, perps, order lifecycle, PnL.<br><b>Infrastructure:</b> Docker, MDBX, SQL, WebAssembly.</p>
+<section class="row2">
+  <div class="side mono">Experience</div>
+  <div class="main" style="gap:0">
+    <div class="job"><span><b>Founding Protocol Engineer</b><span class="org">, Pelagos Network</span></span><span class="d mono">Sep 2025 – Nov 2026</span></div>
+    <div class="job"><span><b>Blockchain Protocol Lead</b><span class="org">, Independent Consultant</span></span><span class="d mono">Feb 2024 – Aug 2025</span></div>
+    <div class="job"><span><b>Senior Protocol Engineer</b><span class="org">, Polygon Labs</span></span><span class="d mono">Jan 2021 – Jan 2024</span></div>
+    <div class="job"><span><b>Solutions Engineer to Associate Team Lead</b><span class="org">, Deqode</span></span><span class="d mono">Jul 2017 – Jan 2021</span></div>
+  </div>
+</section>
 
-  <h2>Education</h2>
-  <p class="plain">B.E., Information Technology, Pune Institute of Computer Technology, 2013 &ndash; 2017. First Class with Distinction.</p>
+<section class="row2">
+  <div class="side mono">Skills</div>
+  <div class="main skills">
+    <div><span class="k mono">Languages</span><span class="v">Go, TypeScript, JavaScript, Solidity, React.</span></div>
+    <div><span class="k mono">Protocol</span><span class="v">Consensus and node infrastructure, Polygon PoS (Bor, Heimdall), Erigon, Go-Ethereum, Cosmos SDK, OP Stack.</span></div>
+    <div><span class="k mono">Cross-chain and integrations</span><span class="v">Hyperlane, bridges, Solana, Midnight, JSON-RPC, WebSockets, webhooks, Privy wallets.</span></div>
+    <div><span class="k mono">Trading systems</span><span class="v">Hyperliquid, Binance, perps, order lifecycle, PnL.</span></div>
+    <div><span class="k mono">Infrastructure</span><span class="v">Docker, MDBX, SQL, WebAssembly.</span></div>
+  </div>
+</section>
+
+<section class="row2">
+  <div class="side mono">Education</div>
+  <div class="main"><p>B.E., Information Technology, Pune Institute of Computer Technology, 2013 – 2017. First Class with Distinction.</p></div>
+</section>
+
+<footer>
+  <p>Hiring for protocol or solutions work? <a href="mailto:krishnau1604@gmail.com">krishnau1604@gmail.com</a></p>
+  <div class="label mono">© 2026 Krishna Upadhyaya</div>
+</footer>
+
 </main>
 </body>
 </html>
